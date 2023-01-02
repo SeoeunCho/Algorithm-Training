@@ -1,41 +1,38 @@
 function solution(board, moves) {
-    let answer = 0;
+    let result = 0;
     
-    // 1. board의 길이만큼 인형을 담을 다중배열 생성(basket)
-    const basket = [];
-    board.forEach((x, i) => {
-        basket[i] = new Array();
-    })
+    // 1. 배열 크기만큼 인형을 담아줄 다중배열 생성
+    let newBoard = [];
+    for (let i = 0; i < board.length; i++) newBoard[i] = new Array();
     
-    // 2. board의 아이템을 list에 담고 각 순서대로 basket에 인형을 담는다.
-    let num = 0;
+    let idx = 0;
     for (let i = 0; i < board.length; i++) {
-        let list = board[i];
         for (let j = 0; j < board.length; j++) {
-            num = basket[j].length === 0 ? 0 : basket[j].length;
-            if (list[j] !== 0) basket[j][num] = list[j];
+            // newBoard의 배열에 이미 인형이 담겨져 있는 경우, 담을 인형의 idx를 변경시켜줌
+            newBoard[j].length === 0 ? idx = 0 : idx = newBoard[j].length;
+            // 2. newBoard의 배열순서에 맞춰 인형 담기
+            if (board[i][j] !== 0) newBoard[j][idx] = board[i][j];
         }
     }
-    // console.log('basket', basket);
     
-    let stack = [];
+    let basket = [];
     for (let i = 0; i < moves.length; i++) {
-        // 3. 인형을 담은 basket의 순서대로 moves의 인형번호와 같으면 stack에 담고 basket에서 제거
-        let move = moves[i] - 1;
-        let a = basket[move];
-        let item = a.shift();
+        let num = moves[i] - 1; // 크레인의 위치
+        let down = newBoard[num]; // 크레인 내려서 인형 뽑을 준비
         
-        // *주의* 더이상 인형이 없어진 경우는 건너뛰어야함!
-        if (!item) continue;
+        // 인형 뽑기
+        let moveItem = down.shift();
         
-        // 4. stack에 인형을 담을때마다 중복이 아니면 담아주고, 중복이면 제거하고 answer에 2씩 더하여 반환
-        if (stack[stack.length - 1] !== item) stack.push(item);
-        else {
-            stack.pop();
-            answer += 2;
-        };
+        // *주의!* 뽑을 인형이 없으면 장바구니에 담지 않아야 함!
+        if (!moveItem) continue;
+        
+        // 장바구니에 뽑은 인형 담을 때마다 중복체크
+        if (basket[basket.length - 1] !== moveItem) basket.push(moveItem); // 중복x : 담기
+        else { // 중복 : 기존 인형 제거, 사라진 인형(제거한 인형 + 중복된 인형의 수) = 2를 증가시켜 반환
+            basket.pop();
+            result += 2;
+        }       
     }
-    // console.log('arr', arr);
     
-    return answer;
+    return result;
 }
