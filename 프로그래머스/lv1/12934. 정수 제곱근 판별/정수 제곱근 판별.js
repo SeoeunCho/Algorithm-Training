@@ -1,8 +1,8 @@
 function solution(n) {
     let answer = 0;
-    let x = Math.sqrt(n);
+    let x = Math.sqrt(n); // 제곱근을 반환
     if (x % 1 === 0) {
-        answer = Math.pow(x+1, 2);
+        answer = Math.pow(x + 1, 2); // Math.pow(base=제곱 할 수, exponent=제곱수)
     } else {
         answer = -1;
     }
