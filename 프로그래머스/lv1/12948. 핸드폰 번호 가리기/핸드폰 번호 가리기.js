@@ -1,4 +1,4 @@
 function solution(phone_number) {
-    lastNum = phone_number.toString().slice(-4);
+    let lastNum = phone_number.slice(-4);
     return lastNum.padStart(phone_number.length, '*');
 }
