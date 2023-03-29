@@ -9,8 +9,8 @@ function solution(a, b) {
 }
 
 // for...in 문을 이용한 풀이
-// function solution(a, b) {
-//     let result = 0;
-//     for (let i in a) result += a[i] * b[i];
-//     return result;
-// }
+function solution(a, b) {
+    let result = 0;
+    for (let i in a) result += a[i] * b[i];
+    return result;
+}
