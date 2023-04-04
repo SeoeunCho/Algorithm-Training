@@ -11,7 +11,18 @@ function solution(food) {
         }
     }
     reverse = answer.split('').reverse().join('');
-    answer += 0;
     
-    return answer + reverse;
+    return answer + '0' + reverse;
+}
+
+
+// repeat, spread operator를 이용한 축약
+function solution(food) {
+    let answer = '';
+    
+    for (let i = 1; i < food.length; i++) {
+        answer += String(i).repeat(Math.floor(food[i] / 2));
+    }
+    
+    return answer + '0' + [...answer].reverse().join('');
 }
