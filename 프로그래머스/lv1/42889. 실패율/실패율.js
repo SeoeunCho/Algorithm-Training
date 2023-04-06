@@ -24,3 +24,22 @@ function solution(N, stages) {
     
     return arr.map(el => el.idx);
 }
+
+
+// 다른 풀이
+function solution(N, stages) {
+    let arr = [];
+    
+    for (let i = 1; i <= N; i++) {
+        // 현재 스테이지를 클리어하지 못한 사용자 수
+        let failedUser = stages.filter(x => x === i).length;
+        // 현재 스테이지에 도달한 사용자 수
+        let challenger = stages.filter(x => x >= i).length;
+        
+        arr.push([i, failedUser/challenger]);
+    }
+    
+    arr.sort((a, b) => b[1] - a[1]);
+    
+    return arr.map(x => x[0]);
+}
