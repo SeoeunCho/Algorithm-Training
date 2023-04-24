@@ -1,19 +1,14 @@
 function solution(n) {
-    let answer = 0;  
-    
-    const sum = (arr2) => {
-        return arr2.reduce((acc, cur) => acc + cur, 0);
-    }
+    let answer = 0;
       
     for (let i = n; i >= 1; i--) {
-        let arr = [];
+        let sum = 0;
         
         for (let j = i; j >= 1; j--) {
-            arr.push(j);
-            let sumValue = sum(arr);
+            sum += j;
 
-            if (sumValue >= n) {
-                if (sumValue === n) answer++;
+            if (sum >= n) {
+                if (sum === n) answer++;
                 break;
             }
         }
