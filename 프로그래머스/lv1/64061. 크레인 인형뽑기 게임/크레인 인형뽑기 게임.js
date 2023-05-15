@@ -20,12 +20,14 @@ function solution(board, moves) {
         let move = moves[i] - 1;
         let a = stack[move];
         let item = a.shift();
-
-        if (item && arr[arr.length - 1] !== item) arr.push(item);
-        else if (item && arr[arr.length - 1] === item) {
-            arr.pop();
-            answer += 2;
-        };
+        
+        if (item) {
+            if (arr[arr.length - 1] !== item) arr.push(item);
+            else {
+                arr.pop();
+                answer += 2;
+            };
+        }
     }
     // console.log('arr', arr);
     
