@@ -13,7 +13,7 @@ function solution(board, moves) {
             if (list[j] !== 0) stack[j][num] = list[j];
         }
     }
-    console.log('stack', stack);
+    // console.log('stack', stack);
     
     let arr = [];
     for (let i = 0; i < moves.length; i++) {
