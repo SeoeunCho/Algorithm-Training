@@ -1,4 +1,4 @@
-// H-index는 h 개의 논문이 각각 '적어도 h 개의 인용'을 갖도록 하는 가장 큰 숫자 h 입니다.
+// H-index는 h개의 논문이 각각 '적어도 h개의 인용'을 갖도록 하는 가장 큰 숫자 h 입니다.
 
 function solution(citations) {
     let len = citations.length;
@@ -16,9 +16,3 @@ function solution(citations) {
     
     return result;
 }
-// [6, 5, 3, 1, 0]
-// 1 4
-// 2 3
-// 3 3
-// 4 2
-// 5 2
