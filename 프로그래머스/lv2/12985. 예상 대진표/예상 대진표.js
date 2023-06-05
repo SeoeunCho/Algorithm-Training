@@ -6,7 +6,6 @@ function solution(n, a, b) {
         b = Math.ceil(b / 2);
         if (a === b) continue;
         answer++;
-        console.log(a, b);
     }
     
     return answer;
