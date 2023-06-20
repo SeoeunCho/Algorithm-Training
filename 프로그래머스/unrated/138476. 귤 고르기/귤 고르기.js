@@ -9,14 +9,18 @@ function solution(k, tangerine) {
     const tArr = Object.values(tObj).sort((a, b) => b - a);
     
     // 3. 필요한 귤만큼 가짓수 더해줌
-    let count = 0;
+    /*let count = 0;
     for (let i = 0; i < tArr.length; i++) {
         if (count < k) {
             count += tArr[i];
             answer++;
-        } else {
-            return answer;
-        };
+        } else break;
+    }*/
+    
+    for (const t of tArr) {
+        answer++;
+        if (k > t) k -= t;
+        else break;
     }
     
     return answer;
