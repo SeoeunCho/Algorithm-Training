@@ -25,3 +25,5 @@ const solution = (cacheSize, cities) => {
     }
     return answer;
 }
+
+// LRU 알고리즘 참고 https://dailylifeofdeveloper.tistory.com/355
