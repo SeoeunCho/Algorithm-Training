@@ -1,15 +1,16 @@
 function solution(s) {
-    let answer = [];
-    let arr = [];
+    const answer = [];
+    const arr = [];
     
     // 1. 원소 배열에 담아줌
     s.slice(2, s.length-2).split('},{').forEach(el => {
         arr.push(el.split(',').map(v => Number(v)))
     })
     
-    // 2. 원소길이 오름차순 정렬
+    // 2. 집합 길이별로 오름차순 정렬
     arr.sort((a, b) => a.length - b.length);
-    // 길이가 하나일 경우는 원소 반환
+    
+    // 3. 길이가 1일 경우는 원소 반환
     if (arr.length === 1) return arr[0];
     
     // 3. 길이가 1이상일 경우 튜플구하기
@@ -22,7 +23,6 @@ function solution(s) {
             if (!answer.includes(arr[i][j])) answer.push(arr[i][j]);
         }
     }
-    
     
     return answer;
 }
