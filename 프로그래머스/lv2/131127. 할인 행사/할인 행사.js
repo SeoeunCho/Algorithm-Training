@@ -9,7 +9,7 @@ const solution = (want, number, discount) => {
         const disArr = discount.slice(i, count + i);
         
         if (disArr.length === count) {
-            let disSumArr = [];
+            const disSumArr = [];
             // 3. 원하는제품의 각 수량과 할인제품의 각 수량 비교
             for (let j = 0; j < want.length; j++) {
                 disSumArr[j] = disArr.filter(item => item === want[j]).length;
