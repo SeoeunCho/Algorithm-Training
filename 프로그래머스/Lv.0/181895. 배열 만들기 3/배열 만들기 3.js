@@ -1,4 +1,5 @@
 function solution(arr, intervals) {
+    /* 초기풀이
     let arr1 = [];
     let arr2 = [];
     
@@ -13,4 +14,9 @@ function solution(arr, intervals) {
     }
     
     return arr1.concat(arr2);
+    */
+    
+    const [[a, b], [c, d]] = intervals;
+    
+    return [...arr.slice(a, b + 1), ...arr.slice(c, d + 1)];
 }
