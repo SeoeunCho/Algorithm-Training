@@ -1,4 +1,5 @@
 function solution(arr) {
+    /* 초기풀이
     const length = arr.length;
     
     for (let i = 0; i < length; i++) {
@@ -10,4 +11,7 @@ function solution(arr) {
     }
     
     return 1;
+    */
+    
+    return arr.every((el, i) => el.every((el, j) => arr[i][j] === arr[j][i])) ? 1 : 0;
 }
