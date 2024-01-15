@@ -1,4 +1,5 @@
 function solution(age) {
+    /* 초기풀이
     let answer = '';
     
     const operator = {
@@ -21,4 +22,7 @@ function solution(age) {
     }
     
     return answer;
+    */
+    
+    return age.toString().split('').map((el) => 'abcdefghij'[el]).join('');
 }
